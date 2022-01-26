@@ -1,0 +1,28 @@
+.card-title-item {
+    font-size: 1.8rem;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+    color: black;
+}
+.card-img-top {
+    border-bottom : 1px solid rgb(182, 174, 174);
+}
+h5 {
+    font-size: inherit;
+}
+.item-card {
+    margin-bottom : 16px;
+}
+
+.btn-recycle {
+    font-size: 1.1rem;
+}
+.icon-sign-out {
+    font-size: 1.8rem;
+}

@@ -1,0 +1,47 @@
+<div class="container h-100">
+    <div class="row justify-content-center h-100">
+      <div id="form-login" class="col-lg-4 col-md-6 my-auto">
+        <div class="d-flex form_container align-items-center">
+        <form action="/login" method="POST" class="w-100">
+          <div class="title_login pb-4">
+            LOG IN
+          </div>
+          <div id="message_success">
+            {{#if message_logout}}
+              {{message_logout}}
+            {{/if}}
+          </div>
+          <div class="form-group pb-2">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" class="form-control" placeholder="Username" aria-describedby="helpId" value="{{#if values}}{{values.username}}{{/if}}" required>
+            <!-- <small id="helpId" class="text-muted">Help text</small> -->
+          </div>
+          
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" class="form-control" placeholder="Password" aria-describedby="helpId" value="{{#if values}}{{values.password}}{{/if}}" required>
+            <!-- <small id="helpId" class="text-muted">Help text</small> -->
+          </div>
+          <div id="message_warn">
+            {{#if message}}
+              {{message}}
+            {{/if}}
+          </div>
+          <div class="form-check pt-1">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input" name="isRemember" id="form-check" value="true">
+              Remember me?
+            </label>
+          </div>
+          <div class="d-flex pt-4 justify-content-evenly">
+            <button type="submit" class="btn btn-primary">Log In</button>
+            <a type="button" href="/register" class="btn btn-primary">Register</a>
+          </div>
+        </form>
+      </div>
+      </div>
+    </div>
+</div>
+
+
+

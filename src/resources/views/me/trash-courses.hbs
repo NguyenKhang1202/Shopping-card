@@ -1,0 +1,96 @@
+<div class="mt-4">
+    <div class="card-title-item">
+        Course deleted
+    </div>
+
+   <a class="btn-recycle" href="/me/stored/courses">Course list ({{countCourse}})</a>
+    <table class="table mt-4">
+        {{#if course}}
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">#</th>
+                <th scope="col">Course name</th>
+                <th scope="col">Description</th>
+                <th scope="col" colspan="3">Video Id</th>   
+            </tr>
+        </thead>
+        {{/if}}
+        <tbody>
+            {{#if course}}
+                {{#each course}}
+                    <tr>
+                        <th scope="row">{{sum @index 1}}</th>
+                        <td>{{this.name}}</td>
+                        <td>{{this.description}}</td>
+                        <td>{{this.videoId}}</td>
+                        <td>
+                            <a href="" class="btn-restore" data-id="{{this._id}}">Restore</a>
+                        </td>
+                        <td>
+                            <a href="" data-toggle="modal" data-target="#delete-permanently" data-id="{{this._id}}">Permanently delete</a>
+                        </td>
+                    </tr>
+                {{/each}}
+                {{else}}
+                <div class="d-flex justify-content-center">
+                    <h5>Bạn chưa xóa khóa học nào.</h5>
+                </div>
+            {{/if}} 
+
+        </tbody>
+    </table>
+</div>
+
+
+<div id="delete-permanently" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Permanently delete</h5>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <p>Bạn có chắc chắn muốn xóa vĩnh viễn?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btn-delete-course-force" class="btn btn-danger">Xóa bỏ</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form method ="POST" name ="form-restore"></form>
+<form method ="POST" name ="form-delete"></form>
+<script>
+    var formRestore = document.forms['form-restore'];
+    var formDelete = document.forms['form-delete'];
+    var restoresBtn = $('.btn-restore');
+    var btn_delete = document.getElementById('btn-delete-course-force');
+    var deleteId;
+    //console.log($('.btn-restore'));
+    document.addEventListener('DOMContentLoaded',function(){
+        $('#delete-permanently').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            //console.log(button);
+            deleteId = button.data('id');   
+        })
+        btn_delete.click(function(event) {
+            //console.log(btn_delete);
+            formDelete.action = `/courses/${deleteId}/delete-force?_method=DELETE`;
+            formDelete.submit();
+        })
+
+        // bỏ hành vi mặc định của thẻ a
+        $('.btn-restore').on('click',function(e) {
+            e.preventDefault();
+            var restoreId = $(this).data('id');
+            console.log(restoreId);
+            formRestore.action = `/courses/${restoreId}/restored?_method=PATCH`;
+            formRestore.submit();
+        });
+        
+    });
+
+</script>

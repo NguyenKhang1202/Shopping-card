@@ -1,0 +1,45 @@
+<div class="container h-100">
+    <div class="row justify-content-center h-100">
+      <div id="form-register" class="col-lg-4 col-md-6 my-auto">
+        <div class="d-flex form_container align-items-center">
+        <form action="/register" method="POST" class="w-100">
+          <div class="title_login pb-4">
+            REGISTER FORM
+          </div>
+          <div id="message_register">
+          {{#if message_register}}
+            {{message_register}}
+          {{/if}}
+          </div>
+          <div class="form-group pb-2">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" class="form-control" placeholder="Username" aria-describedby="helpId" required>
+            <!-- <small id="helpId" class="text-muted">Help text</small> -->
+          </div>
+          
+          <div class="form-group pb-2">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" class="form-control" placeholder="Password" aria-describedby="helpId" required>
+            <!-- <small id="helpId" class="text-muted">Help text</small> -->
+          </div>
+        
+        <div class="form-group pb-2">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" class="form-control" placeholder="Email" aria-describedby="helpId" required>
+            <!-- <small id="helpId" class="text-muted">Help text</small> -->
+          </div>
+        
+        <div class="form-group pb-2">
+            <label for="Phone">Phone</label>
+            <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone" aria-describedby="helpId" required>
+            <!-- <small id="helpId" class="text-muted">Help text</small> -->
+          </div>
+          <div class="d-flex pt-4 justify-content-evenly">
+            <button type="submit" class="btn btn-primary">Register</button>
+            <a type="button" href="/login" class="btn btn-primary">Log in</a>
+          </div>
+        </form>
+      </div>
+      </div>
+    </div>
+</div>

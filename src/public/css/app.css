@@ -1,0 +1,19 @@
+html {
+    font-family : "Montserrat",Arial,Helvetica,sans-serif;
+    height : 100%;
+    /* background-color : rgb(245,245,245); */
+}
+
+.navbar-style {
+    font-size: 18px;
+    font-weight: 500;
+    color: black !important;
+}
+
+nav ul li:hover {
+    background-color: rgb(208, 215, 223);
+}
+
+.margin-top {
+    margin-top: 80px;
+}

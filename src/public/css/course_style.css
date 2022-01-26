@@ -1,0 +1,22 @@
+.course-form {
+    /* width : 500px; */
+    margin : auto;
+    height : 100%;
+    align-items: center;
+}
+.course_style {
+    margin-top: 80px;
+    height : 100%;
+}
+
+button {
+    width : 150px;
+}
+
+form {
+    width : 500px;
+    padding: 10px 10px 10px 10px;
+    border: 1px solid gainsboro;
+    border-radius : 5px;
+    background-color: rgb(248, 247, 247);
+}
